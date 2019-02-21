@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "webpack --progress --config webpack.dev.config.js",
-    "dev": "webpack-dev-server --content-base ./ --open --inline --hot --host 10.128.21.142 --compress --history-api-fallback --config webpack.dev.config.js",
+    "dev": "webpack-dev-server --content-base ./ --open --inline --hot --host 10.128.21.142  --compress --history-api-fallback --config webpack.dev.config.js",
     "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },
   "repository": {
@@ -15,7 +15,7 @@
   "author": "Aresn",
   "license": "MIT",
   "dependencies": {
-    "iview": "^3.0.0",
+    "iview": "^3.2.2",
     "vue": "^2.5.16",
     "vue-router": "^2.8.1"
   },
