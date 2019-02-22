@@ -70,7 +70,7 @@
 
             <div v-if="item.left_or_right == 'left'" class="left_word">
                 <div class="">
-                    <img class="imgs" src="../../../images/people_imgs/2.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/2.jpg" alt="">
                 </div>
                 <div class="contents">
                     <div class="title">
@@ -85,7 +85,7 @@
 
             <div v-if="item.left_or_right == 'right'" class="right_word">
                 <div class="">
-                    <img class="imgs" src="../../../images/people_imgs/1.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/1.jpg" alt="">
                 </div>
                 <div class="contents">
                     <div class="title">
@@ -117,7 +117,7 @@
                         date:'2018-09-20 13:55:42',
                         name:'马云',
                         content:'洗澡中，请勿打扰：一般人我不告诉他！[哈哈]',
-                        img:'../../../images/people_imgs/1.jpg'
+                        img:'../../../../images/people_imgs/1.jpg'
                     },
                     {
                         left_or_right:'right',

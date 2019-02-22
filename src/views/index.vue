@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-    import contact_index from './contact_index.vue'
+    import contact_index from './contact_views/contact_index.vue'
 
     
     export default {

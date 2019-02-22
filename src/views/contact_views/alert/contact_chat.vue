@@ -108,17 +108,17 @@
     <div class="contact_center1">
         <Modal class="modal_alerts" v-model="if_people_alert" width="900" draggable  :mask="false" :mask-closable="false" :footer-hide="true">
             <p slot="header" style="color:#f60;" class="word_and word_and_head">
-                <img class="imgs" src="../../images/people_imgs/1.jpg" alt="">
+                <img class="imgs" src="../../../images/people_imgs/1.jpg" alt="">
                 <span class="name_big">鲁超明</span>
             </p>
             <div style="text-align:center" class="modal_cntr">
                 <Menu class="menu_list" :theme="theme3" active-name="1" v-on:on-select="select_which">
                     <MenuItem name="1" class="word_and">
-                        <img class="imgs" src="../../images/people_imgs/1.jpg" alt="">
+                        <img class="imgs" src="../../../images/people_imgs/1.jpg" alt="">
                         <span class="name_big">鲁超明</span>
                     </MenuItem>
                     <MenuItem name="2" class="word_and">
-                        <img class="imgs" src="../../images/people_imgs/2.jpg" alt="">
+                        <img class="imgs" src="../../../images/people_imgs/2.jpg" alt="">
                         <span class="name_big">马云</span>
                     </MenuItem>
                 </Menu>
@@ -156,8 +156,8 @@
 </template>
 
 <script>
-    import contactChatList from './contact_chat/contactChatList.vue'
-    import contactChatHistory from './contact_chat/contact_list_li/contactChatHistory.vue'
+    import contactChatList from './chats/contactChatList.vue'
+    import contactChatHistory from './chats/contact_list_li/contactChatHistory.vue'
     export default {
         components:{
             contactChatList,

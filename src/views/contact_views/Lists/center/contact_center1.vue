@@ -53,25 +53,25 @@
                 同学
                 <p slot="content" class="word_and"  @click="people_alert = true" data-num="发发发发">
 
-                    <img class="imgs" src="../../images/people_imgs/1.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/1.jpg" alt="">
                     <span class="name">鲁超明</span>
                     <span class="word">曾经沧海难为水</span>
                 </p>
                 <p slot="content" class="word_and">
 
-                    <img class="imgs" src="../../images/people_imgs/2.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/2.jpg" alt="">
                     <span class="name">马云</span>
                     <span class="word">乡春教师，慈善家，口才好，有前途</span>
                 </p>
                 <p slot="content" class="word_and">
 
-                    <img class="imgs" src="../../images/people_imgs/3.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/3.jpg" alt="">
                     <span class="name">李玉梅</span>
                     <span class="word">世界首富</span>
                 </p>
                 <p slot="content" class="word_and">
 
-                    <img class="imgs" src="../../images/people_imgs/4.jpg" alt="">
+                    <img class="imgs" src="../../../../images/people_imgs/4.jpg" alt="">
                     <span class="name">刘立博</span>
                     <span class="word">阿里巴巴创始人</span>
                 </p>
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-    import contact_chat from './contact_chat.vue'
+    import contact_chat from '../../alert/contact_chat.vue'
     export default {
         components:{
             contact_chat

@@ -16,16 +16,7 @@ const RouterConfig = {
 };
 const router = new VueRouter(RouterConfig);
 
-router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
-});
 
-router.afterEach((to, from, next) => {
-    iView.LoadingBar.finish();
-    window.scrollTo(0, 0);
-});
 
 new Vue({
     el: '#app',

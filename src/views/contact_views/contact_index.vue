@@ -24,9 +24,9 @@
 
 
 <script>
-    import contact_title from './contact_title.vue'
-    import contact_bottom from './contact_bottom.vue'
-    import contact_center from './contact_center.vue'
+    import contact_title from './Lists/top/contact_title.vue'
+    import contact_bottom from './Lists/bottom/contact_bottom.vue'
+    import contact_center from './Lists/center/contact_center.vue'
     export default {
         props:['background_color'],
         components:{

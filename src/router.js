@@ -5,7 +5,7 @@ const routers = [
         meta: {
             title: ''
         },
-        component: (resolve) => require(['./views/contact_views/index.vue'], resolve)
+        component: (resolve) => require(['./views/index.vue'], resolve)
     }
 ];
 export default routers;
