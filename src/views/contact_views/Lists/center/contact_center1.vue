@@ -49,71 +49,41 @@
 <template>
     <div class="contact_center1">
         <Collapse simple>
-            <Panel name="1">
-                同学
-                <p slot="content" class="word_and"  @click="people_alert = true" data-num="发发发发">
+            <Panel :name="item.id" v-for="item in contacts">
+                {{item.name}}
+                <p slot="content" class="word_and" v-for="item_two in item.values"  @click="alert_chat(item_two)" data-num="发发发发">
 
-                    <img class="imgs" src="../../../../images/people_imgs/1.jpg" alt="">
-                    <span class="name">鲁超明</span>
-                    <span class="word">曾经沧海难为水</span>
+                    <img v-if="item_two.img == ''" class="imgs" src="../../../../images/people_imgs/1.jpg" alt="">
+                    <img v-else class="imgs" :src="item_two.img" alt="">
+                    <span class="name">{{item_two.name}}</span>
+                    <span class="word">{{item_two.label}}</span>
                 </p>
-                <p slot="content" class="word_and">
-
-                    <img class="imgs" src="../../../../images/people_imgs/2.jpg" alt="">
-                    <span class="name">马云</span>
-                    <span class="word">乡春教师，慈善家，口才好，有前途</span>
-                </p>
-                <p slot="content" class="word_and">
-
-                    <img class="imgs" src="../../../../images/people_imgs/3.jpg" alt="">
-                    <span class="name">李玉梅</span>
-                    <span class="word">世界首富</span>
-                </p>
-                <p slot="content" class="word_and">
-
-                    <img class="imgs" src="../../../../images/people_imgs/4.jpg" alt="">
-                    <span class="name">刘立博</span>
-                    <span class="word">阿里巴巴创始人</span>
-                </p>
-            </Panel>
-            <Panel name="2">
-                同事
-                <p slot="content"></p>
-            </Panel>
-            <Panel name="3">
-                朋友
-                <p slot="content"></p>
             </Panel>
         </Collapse>
 
 
 
-        <contact_chat :if_people_alert="people_alert"></contact_chat>
+        <contact_chat :alert_data="people_alert"  ref="child"></contact_chat>
     </div>
 </template>
 
 <script>
-    import contact_chat from '../../alert/contact_chat.vue'
+    import contact_chat from '../../alert/contact_chat.vue';
+    import ip_link from '../../../../template/ip_link.js';
     export default {
         components:{
             contact_chat
         },
         data () {
             return {
-                label: (h) => {
-                    return h('div', [
-                        h('span', '标签一'),
-                        h('Badge', {
-                            props: {
-                                count: 3
-                            }
-                        })
-                    ])
+                contacts:ip_link.lists.contacts,
+                people_alert:{
+                    if_alert:false
                 },
-                people_alert:false,
-                theme3: 'primary',
-                link:'http:www.baidu.com'
             }
+        },
+        mounted(){
+            console.log(ip_link)
         },
         methods:{
             person_alert(e){
@@ -121,6 +91,10 @@
             },
             select_which(e){
                 console.log(e)
+            },
+            alert_chat(e){
+                this.people_alert.if_alert=true;
+                this.$refs.child.onChange(e);
             }
         }
     }

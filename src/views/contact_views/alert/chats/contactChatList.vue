@@ -61,12 +61,14 @@
             }
         }
     }
+
+
 </style>
 
 
 <template>
     <div class="chatList" style="">
-        <div v-for="item in chatList">
+        <div v-for="item in content_data.chatList">
 
             <div v-if="item.left_or_right == 'left'" class="left_word">
                 <div class="">
@@ -109,37 +111,14 @@
         components:{
 
         },
+        props:['content_data'],
         data () {
             return {
-                chatList: [
-                    {
-                        left_or_right:'left',
-                        date:'2018-09-20 13:55:42',
-                        name:'马云',
-                        content:'洗澡中，请勿打扰：一般人我不告诉他！[哈哈]',
-                        img:'../../../../images/people_imgs/1.jpg'
-                    },
-                    {
-                        left_or_right:'right',
-                        date:'2018-09-20 13:55:42',
-                        name:'鲁超明',
-                        content:'洗澡中，请勿打扰：一般人我不告诉他！[哈哈]'
-                    },
-                    {
-                        left_or_right:'left',
-                        date:'2018-09-20 13:55:42',
-                        name:'马云',
-                        content:'洗澡中，请勿打扰：一般人我不告诉他！[哈哈]'
-                    },
-                    {
-                        left_or_right:'right',
-                        date:'2018-09-20 13:55:42',
-                        name:'鲁超明',
-                        content:'洗澡中，请勿打扰：一般人我不告诉他！[哈哈]'
-                    },
 
-                ],
             }
+        },
+        mounted(){
+
         },
         methods: {
 

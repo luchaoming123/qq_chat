@@ -22,15 +22,15 @@
                 :styles="styles"
         >
 
-            <contactChatList></contactChatList>
+            <contactChatHistroyContent></contactChatHistroyContent>
         </Drawer>
     </div>
 </template>
 <script>
-    import contactChatList from '../contactChatList.vue'
+    import contactChatHistroyContent from './contactChatHistroyContent.vue'
     export default {
         components:{
-            contactChatList,
+            contactChatHistroyContent,
         },
         props:['if_show_history'],
         data () {

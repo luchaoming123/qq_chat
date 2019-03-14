@@ -1,4 +1,5 @@
 <style scoped lang="less">
+
     .modal_alerts{
         .menu_list{
             background-color: #f8f9fb;
@@ -101,30 +102,28 @@
         }
     }
 
+
 </style>
 
 
 <template>
     <div class="contact_center1">
-        <Modal class="modal_alerts" v-model="if_people_alert" width="900" draggable  :mask="false" :mask-closable="false" :footer-hide="true">
+        <Modal class="modal_alerts" v-model="alert_data.if_alert" width="900" draggable  :mask="false" :mask-closable="false" :footer-hide="true">
             <p slot="header" style="color:#f60;" class="word_and word_and_head">
                 <img class="imgs" src="../../../images/people_imgs/1.jpg" alt="">
-                <span class="name_big">鲁超明</span>
+                <span class="name_big">{{whick_chat_now.name}}</span>
             </p>
             <div style="text-align:center" class="modal_cntr">
-                <Menu class="menu_list" :theme="theme3" active-name="1" v-on:on-select="select_which">
-                    <MenuItem name="1" class="word_and">
+                <Menu class="menu_list" :theme="theme3" :active-name="active_id" v-on:on-select="select_which">
+                    <MenuItem :name="item.id" v-for="item in alert_datas" class="word_and">
                         <img class="imgs" src="../../../images/people_imgs/1.jpg" alt="">
-                        <span class="name_big">鲁超明</span>
-                    </MenuItem>
-                    <MenuItem name="2" class="word_and">
-                        <img class="imgs" src="../../../images/people_imgs/2.jpg" alt="">
-                        <span class="name_big">马云</span>
+                        <span class="name_big">{{item.name}}</span>
                     </MenuItem>
                 </Menu>
                 <div class="chat_history">
                     <div class="chat_list">
-                        <contactChatList></contactChatList>
+                        <!--聊天内容-->
+                        <contactChatList :content_data="chat_content"></contactChatList>
                     </div>
                     <div class="line_divider"></div>
                     <div class="list_for_icon_list">
@@ -144,7 +143,7 @@
                         <textarea name="" id="" placeholder="请输入..." class="textarea_css"></textarea>
                     </div>
                     <div class="chat_enter">
-                        <Button type="success" style="margin-right: 10px" size="default">取消</Button>
+                        <Button type="default" style="margin-right: 10px" size="default">关闭</Button>
                         <Button type="success" size="default">发送</Button>
                     </div>
                 </div>
@@ -163,24 +162,64 @@
             contactChatList,
             contactChatHistory
         },
-        props:['if_people_alert'],
+        props:['alert_data'],
         data () {
             return {
                 theme3: 'primary',
-                link:'http:www.baidu.com',
-                if_show_history:false
+                if_show_history:false,
+                alert_datas:[
+
+                ],
+                whick_chat_now:{},
+                active_id:'',    //默认选中的标签id
+                chat_content:{   //聊天内容
+                    chatList:[]
+                },
             }
+        },
+        mounted(){
+            console.log(this.alert_data)
         },
         methods:{
             person_alert(e){
                 console.log(e)
             },
+            //当list切换选择时
             select_which(e){
-                console.log(e)
+                for(let item of this.alert_datas){
+                    if(item.id == e){
+                        this.chat_content=item;
+                        this.whick_chat_now=item;
+                    }
+                }
             },
             click_history(){
-                this.if_show_history=true
+                this.if_show_history=true;
                 console.log(this.if_show_history)
+            },
+            onChange(e){
+                //当前选中列表
+                this.whick_chat_now=e;
+                //当前聊天内容
+                this.chat_content=e;
+
+                //当前所有的弹框信息保存
+                let if_add=true;
+                for(var item of this.alert_datas){
+                    if(item.id == e.id){
+                        if_add=false;
+                    }
+                }
+                if(if_add == true){
+                    this.alert_datas.push(e);
+                }
+
+
+                //当前选中标签
+                const that=this;
+                setTimeout(function () {
+                    that.active_id=e.id;
+                },100)
             }
         }
     }
